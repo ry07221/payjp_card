@@ -10,9 +10,9 @@
   <div class='form-wrap'>
     <p>有効期限</p>
     <div class='input-expiration-date-wrap'>
-      <%= f.text_field :exp_month, class:"exp_month", placeholder:"例)3" %>
+      <%= f.select :hoge, 1..12, {include_blank: "---"}, id: "exp_month" %>
       <p>月</p>
-      <%= f.text_field :exp_year, class:"exp_month", placeholder:"例)24" %>
+      <%= f.select :hoge, 20..25, {include_blank: "---"}, id: "exp_month" %>
       <p>年</p>
     </div>
   </div>

@@ -2,5 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :users
   root 'cards#new'
-  resources :orders, only:[:create]
+  resources :cards, only: [:create] do
+    collection do
+      post :purchase
+    end
+  end
 end

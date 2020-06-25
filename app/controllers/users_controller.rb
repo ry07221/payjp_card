@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :set_card, only: :show
-
+ 
   def show
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
 
@@ -21,11 +20,6 @@ class UsersController < ApplicationController
 
   private
 
-  # def set_card
-  #   card = Card.find_by(user_id: current_user.id)
-  #   redirect_to new_card_path and return unless card.present?
-  # end
-  
   def user_params
     params.require(:user).permit(:name, :email)
   end

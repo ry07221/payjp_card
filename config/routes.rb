@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
 
-  resources :cards, only: [:index, :new, :create,] do
-    collection do
+  resources :cards, only: [:index, :new, :create,] 
+  resources :items do
+    member do
       post :order
     end
   end
+
 end

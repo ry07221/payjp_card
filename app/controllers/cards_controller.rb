@@ -1,8 +1,5 @@
 class CardsController < ApplicationController
    protect_from_forgery :except => [:create]  # APIを使用する際のセキュリティが強化され、エラーがでてしまうので、createだけ外しておく
-   
-  def index  
-  end
 
   def new
   end

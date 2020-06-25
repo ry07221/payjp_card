@@ -3,11 +3,11 @@
     <h1>マイページ</h1>
   </div><br>
   <div class="Card_info">
-    クレジットカード
+    【クレジットカード】
     <br>
     <%= "**** **** **** " + @card[:last4] %>
     <br><br>
-    有効期限
+    【有効期限】
     <br>
     <%= @card[:exp_month] %> 
     /
@@ -16,8 +16,8 @@
   <br><br><br>
 
 
-    ユーザー情報を編集
-    <br><br>
+    【ユーザー情報を編集】
+    <br>
   <div class="AccountPage__form">
     <%= form_for(current_user) do |f| %>
       <div class="FormField">

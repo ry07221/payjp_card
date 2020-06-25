@@ -1,23 +1,34 @@
 class CardsController < ApplicationController
+   protect_from_forgery :except => [:create]  # APIを使用する際のセキュリティが強化され、エラーがでてしまうので、createだけ外しておく
+   
+  def index  
+  end
+
   def new
   end
 
   def create
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    customer = Payjp::Customer.create(
+    description: 'test',
+    card: params[:card_token]
+  )
 
-    customer = Payjp::Customer.create(card: params[:payjp_token]) 
-    card = current_user.build_card(card_token: params[:card_token], customer_token: customer.id)
-
-    if card.save
-      redirect_to root_path
-    else
-      redirect_to new
-    end
-
+   card = Card.new(
+     card_token: params[:card_token],
+     customer_token: customer.id,
+     user_id: current_user.id
+   )
+   
+   if card.save
+    redirect_to root_path
+   else
+    redirect_to "new"
+   end
   end
 
-  def purchase
-    @order = Card.new(price: order_params[:price])
+  def order
+    @order = Order.new(price: order_params[:price])
     if @order.valid?
       pay_item
       @order.save

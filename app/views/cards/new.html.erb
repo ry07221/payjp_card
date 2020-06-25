@@ -10,11 +10,11 @@
   <div class='form-wrap'>
     <p>有効期限</p>
     <div class='input-expiration-date-wrap'>
-      <%= f.select :hoge, 1..12, {include_blank: "---"}, id: "exp_month" %>
+      <%= f.select :exp_month, 1..12, {include_blank: "---"}, class: "exp_month" %>
       <p>月</p>
-      <%= f.select :hoge, 20..25, {include_blank: "---"}, id: "exp_month" %>
+      <%= f.select :exp_year, 20..25, {include_blank: "---"}, class: "exp_year" %>
       <p>年</p>
     </div>
   </div>
-  <%= f.submit "商品購入へ進む" ,class:"button" %>
+  <%= f.submit "登録する" ,class:"button" %>
 <% end %>

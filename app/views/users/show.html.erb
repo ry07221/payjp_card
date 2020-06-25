@@ -5,18 +5,19 @@
   <div class="Card_info">
     クレジットカード
     <br>
-    <%= "**** **** ****" + @card[:last4] %>
+    <%= "**** **** **** " + @card[:last4] %>
     <br><br>
     有効期限
     <br>
     <%= @card[:exp_month] %> 
     /
-    <%= @card[:exp_month] %>
+    <%= @card[:exp_year] %>
   </div>
   <br><br><br>
 
 
-    ユーザー情報を編集<br>
+    ユーザー情報を編集
+    <br><br>
   <div class="AccountPage__form">
     <%= form_for(current_user) do |f| %>
       <div class="FormField">

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
   resources :users, only: [:show, :update]
-  resources :cards, only: [:index, :new, :create] 
+  resources :cards, only: [:new, :create] 
   resources :items do
     member do
       post "order"

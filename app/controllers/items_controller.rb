@@ -1,32 +1,25 @@
 class ItemsController < ApplicationController
+  before_action :find_item, only: :order
 
   def index
     @items = Item.all
   end
 
   def order
-    @order = Order.new(price: order_params[:price])
-    if @order.valid?
-      pay_item
-      @order.save
-      return redirect_to root_path
-    end
-    render 'new'
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    customer_token = current_user.card.customer_token
+    Payjp::Charge.create(
+      amount: @item.price, 
+      customer: customer_token, 
+      currency: 'jpy'  
+    )
+    redirect_to items_path(@item)
   end
 
   private
 
-  def order_params
-    params.permit(:price, :card_token)
+  def find_item
+    @item = Item.find(params[:id])
   end
 
-  def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    Payjp::Charge.create(
-      amount: order_params[:price],
-      card: order_params[:card_token],
-      currency:'jpy'
-    )
-  end
-  
 end

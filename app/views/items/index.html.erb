@@ -1,9 +1,9 @@
-<%= link_to '購入画面へ行く', order_item_path %><br>
 <div class="contents">	
   <div class="content">
     <% @items.each do |item| %>
       <p><%= item.name %></p>
       <p><%= item.price %>円</p>
+      <%= link_to '購入画面へ行く', order_item_path(item.id) %>
     <% end %>
   </div>
 </div>

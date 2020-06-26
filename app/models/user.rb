@@ -5,6 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :card, dependent: :destroy
-  has_many :item_order
 
 end

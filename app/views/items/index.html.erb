@@ -2,6 +2,10 @@
  <br><br><br>
 
 <div class="content">
+  <% if item.item_order != nil %>
+  <div class='sold-out'> %>
+    <% <span>Sold Out!!</span> %>%
+  </div>
   <% @items.each do |item| %>
     <p><%= item.name %></p>
     <p><%= item.price %>円</p>

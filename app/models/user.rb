@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :card, dependent: :destroy
-  # validates :name, presence: true, uniqueness: true
+  has_many :item_order
+
 end

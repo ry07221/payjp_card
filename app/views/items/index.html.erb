@@ -2,14 +2,15 @@
  <br><br><br>
 <div class="content">
   <% @items.each do |item| %>
-    <% if item.item_order != nil %>
-      <div class='sold-out'>
-        <span>Sold Out!!</span>
-      </div>
-    <% end %>
     <p><%= item.name %></p>
     <p><%= item.price %>円</p>
-    <%= link_to '購入する', order_item_path(item.id), method: :post %>
+    <% if item.item_order != nil %>
+      <div class='sold-out'>
+        <b>Sold Out!!</b>
+      </div>
+    <% else %>
+      <%= link_to '購入する', order_item_path(item.id), method: :post %>
+    <% end %>
     <br><br><br><br>
-  <% end %>
+  <% end %>%
 </div>

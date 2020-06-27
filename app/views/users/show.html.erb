@@ -2,20 +2,24 @@
   <div class="AccountPage__title">
     <h1>マイページ</h1>
   </div><br>
+  <div class="Card__title">
+    <h2>カード情報<h2>
+  </div>
   <div class="Card_info">
-    <b>【カード番号】</b>
+    【カード番号】
     <br>
     <%= "**** **** **** " + @card[:last4] %>
-    <br><br>
-    <b>【有効期限】</b>
+    <br>
+    【有効期限】
     <br>
     <%= @card[:exp_month] %> 
     /
     <%= @card[:exp_year] %>
   </div>
-  <br><br><br>
-    <b>【ユーザー情報を編集】</b>
-    <br>
+  <br><br>
+  <div class="Account__info">
+    <h2>ユーザー情報</h2>
+  </div>
   <div class="AccountPage__form">
     <%= form_for(current_user) do |f| %>
       <div class="FormField">

@@ -2,8 +2,8 @@
  <br><br><br>
 <div class="content">
   <% @items.each do |item| %>
-    <p><%= item.name %></p>
-    <p><%= item.price %>円</p>
+    <p>【商品名】： <%= item.name %></p>
+    <p>【値段】：<%= item.price %>円</p>
     <% if item.item_order != nil %>
       <div class='sold-out'>
         <b>Sold Out!!</b>

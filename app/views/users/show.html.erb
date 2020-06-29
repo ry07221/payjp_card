@@ -2,42 +2,44 @@
   <div class="AccountPage__title">
     <h1>マイページ</h1>
   </div><br>
+  <div class="Card__title">
+    <h2>カード情報<h2>
+  </div>
   <div class="Card_info">
-    【クレジットカード】
+    【カード番号】
     <br>
     <%= "**** **** **** " + @card[:last4] %>
-    <br><br>
+    <br>
     【有効期限】
     <br>
     <%= @card[:exp_month] %> 
     /
     <%= @card[:exp_year] %>
   </div>
-  <br><br><br>
-
-
-    【ユーザー情報を編集】
-    <br>
+  <br><br>
+  <div class="Account__info">
+    <h2>ユーザー情報</h2>
+  </div>
   <div class="AccountPage__form">
     <%= form_for(current_user) do |f| %>
       <div class="FormField">
-        <div class="FormField__label--normal">
+        <div class="FormField__name">
           <%= f.label :name %>
         </div>
-        <div class="FormField__input--normal">
+        <div class="FormField__name">
           <%= f.text_field :name, autofocus: true %>
         </div>
       </div>
       <div class="FormField">
-        <div class="FormField__label--normal">
+        <div class="FormField__email">
           <%= f.label :email %>
         </div>
-        <div class="FormField__input--normal">
+        <div class="FormField__email">
           <%= f.email_field :email %>
         </div>
         <br>
       </div>
-      <%= f.submit "Update", class: 'Button UserButton' %>
+      <%= f.submit "更新する" %>
       <br><br><br>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
     <br>

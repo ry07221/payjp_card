@@ -7,9 +7,6 @@ class ItemsController < ApplicationController
 
   def order
     redirect_to new_card_path and return unless current_user.card.present?
-    return redirect_to root_path if find_item.item_order != nil
-
-    ItemOrder.create(item_id: params[:id])
     
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     customer_token = current_user.card.customer_token
@@ -18,6 +15,9 @@ class ItemsController < ApplicationController
       customer: customer_token, 
       currency: 'jpy'  
       )
+
+    ItemOrder.create(item_id: params[:id])
+
     redirect_to root_path
   end
 

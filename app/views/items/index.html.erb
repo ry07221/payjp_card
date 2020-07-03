@@ -1,5 +1,4 @@
  <%= link_to 'マイページへ行く', user_path(current_user) %>
- <br><br><br>
 <div class="content">
   <% @items.each do |item| %>
     <p>商品名： <%= item.name %></p>
@@ -9,8 +8,9 @@
         <b>Sold Out!!</b>
       </div>
     <% else %>
-      <%= link_to '購入する', order_item_path(item.id), method: :post %>
+      <div class='order'>
+        <%= link_to '購入する', order_item_path(item.id), method: :post %>
+      </div>
     <% end %>
-    <br><br><br>
   <% end %>
 </div>

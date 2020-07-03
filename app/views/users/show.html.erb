@@ -1,5 +1,5 @@
 <div class="AccountPage">
-  <div class="AccountPage__title">
+  <div class="MyPagePage__title">
     <h1>マイページ</h1>
   </div><br>
   <div class="Card__title">
@@ -16,7 +16,6 @@
     /
     <%= @card[:exp_year] %>
   </div>
-  <br><br>
   <div class="Account__info">
     <h2>ユーザー情報</h2>
   </div>
@@ -39,10 +38,10 @@
         </div>
         <br>
       </div>
-      <%= f.submit "更新する" %>
-      <br><br><br>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
-    <br>
+      <%= f.submit "更新する", class:"update" %>
+      <br>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
+      <br>
     <%= link_to "商品一覧へ戻る", root_path%>
     <% end %>
   </div>

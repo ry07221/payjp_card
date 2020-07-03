@@ -1,7 +1,7 @@
 <div class="AccountPage">
   <div class="AccountPage__title">
     <h1>新規ユーザー登録</h1>
-    <%= render "devise/shared/links" %><br><br>
+    <%= render "devise/shared/links" %><br>
   </div>
   <div class="AccountPage__form">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -45,3 +45,5 @@
     <% end %>
   </div>
 </div>
+
+

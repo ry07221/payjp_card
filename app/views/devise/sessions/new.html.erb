@@ -2,7 +2,7 @@
   <div class="AccountPage__title">
     <h1>ログインページ</h1>
     <%= render "devise/shared/links" %>
-  </div><br><br>
+  </div><br>
   <div class="AccountPage__form">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="FormField">
@@ -28,3 +28,4 @@
     <% end %>
   </div>
 </div>
+

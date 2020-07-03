@@ -1,3 +1,23 @@
+.AccountPage__title{
+  margin-bottom: 30px;
+}
+
+.content{
+  margin-top: 60px;
+}
+
+.sold-out{
+  margin-bottom: 60px;
+}
+
+.order{
+  margin-bottom: 60px;
+}
+
+.Card_info{
+  margin-bottom: 60px;
+}
+
 .card-form{
   width: 500px;
  }
@@ -15,6 +35,10 @@
   resize:none;
  }
  
+.update{
+  margin-top: 50px;
+}
+
  .input-expiration-date-wrap{
   display: flex;
  }
@@ -25,3 +49,4 @@
   height: 30px;
   width: 100px;
  }
+
